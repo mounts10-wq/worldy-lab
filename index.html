@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wordly Dictionary</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app" id="app">
+    <header class="header">
+      <h1>Wordly Dictionary</h1>
+      <button id="themeToggle" class="btn ghost" aria-label="Toggle theme">🌙</button>
+    </header>
+
+    <form id="searchForm" class="search" aria-label="Dictionary search form">
+      <input
+        id="wordInput"
+        type="text"
+        placeholder="Search a word (e.g., hello)"
+        aria-label="Word to search"
+        autocomplete="off"
+      />
+      <button class="btn" type="submit">Search</button>
+    </form>
+
+    <section class="status">
+      <p id="loading" class="hidden">Loading…</p>
+      <p id="error" class="hidden" role="alert"></p>
+    </section>
+
+    <section id="result" class="card hidden" aria-live="polite"></section>
+
+    <section class="card">
+      <div class="row">
+        <h2>Saved Words</h2>
+        <button id="clearSaved" class="btn ghost" type="button">Clear</button>
+      </div>
+      <ul id="savedList" class="saved"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
