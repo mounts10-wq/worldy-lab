@@ -31,7 +31,7 @@ clearSavedBtn.addEventListener("click", () => {
   savedWords.clear();
   persistSavedWords();
   renderSavedWords();
-  // also update highlight if a result is showing
+  // update highlight if a result is showing
   highlightSavedState();
 });
 
@@ -51,12 +51,11 @@ async function searchWord(word) {
     const data = await res.json();
 
     if (!res.ok) {
-      // API often returns {title, message, resolution} on errors
+
       const msg = data?.message || "Word not found. Try another one.";
       throw new Error(msg);
     }
 
-    // Successful responses are usually an array
     const entry = Array.isArray(data) ? data[0] : data;
     renderResult(entry);
   } catch (err) {
@@ -196,7 +195,6 @@ function renderSavedWords() {
 }
 
 function highlightSavedState() {
-  // Optional: could add “saved-on” class to things in the results area if needed
 }
 
 function setLoading(isLoading) {
